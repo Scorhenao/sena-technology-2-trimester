@@ -3,7 +3,7 @@
 
 # Clase Padre: Glosa
 # Atributos: codigo_glosa, descripcion, monto_rechazado
-# Métodos: mostrar_info()
+# Métodos: mostrar_info ()
 
 # Clases Hijas:
 # GlosaPorFaltaDocumentacion
@@ -14,6 +14,11 @@
 # Atributos adicionales: tipo_error
 # Método sobreescrito: mostrar_info() 
 
+# Añadir metodo estatico para calcular el valor total de las glosas rechazadas
+# Anadir estatico para guardar las glosas
+# Anadir estatico para mostrar cantidad de glosas
+# Diccionario para guardar 
+glosas = {}
 class Glosa:
     def __init__(self, codigo_glosa, descripcion, montoRechazado):
         try:
@@ -27,6 +32,8 @@ class Glosa:
             self.__codigo_glosa = codigo_glosa
             self.__descripcion = descripcion
             self.__montoRechazado = montoRechazado
+
+
         except (TypeError, ValueError) as e:
             print(f"Error al crear la glosa: {e}")
 
@@ -40,13 +47,10 @@ class Glosa:
 
     # Getters y setters
     def getCodigoGlosa(self):
-        print(f"El codigo de la glosa es: {self.__codigo_glosa}")
         return self.__codigo_glosa
     def getDescripcion(self):
-        print(f"La descripcion de la glosa es: {self.__descripcion}")
         return self.__descripcion
     def getMontoRechazado(self):
-        print(f"EL moto rechazado de la glosa es: {self.__montoRechazado}")
         return self.__montoRechazado
 
     def setCodigoGlosa(self, codigoGlosa):
@@ -70,6 +74,10 @@ class Glosa:
         except Exception as e:
             print(f"Error al setear el monto rechazado: {e}")
 
+    @staticmethod
+    def calcularTotalGlosasRechazadas():
+        return sum(glosa.getMontoRechazado() for glosa in glosas.values())
+    
 class GlosaPorFaltaDocumentacion(Glosa):
     def __init__(self, codigo_glosa, descripcion, monto_rechazado, documentosFaltantes):
         super().__init__(codigo_glosa, descripcion, monto_rechazado)
@@ -88,7 +96,6 @@ class GlosaPorFaltaDocumentacion(Glosa):
 
     # Getters y setters
     def getDocumentosFaltantes(self):
-        print(f"Los documentos faltantes son: {self.__documentosFaltantes}")
         return self.__documentosFaltantes
     
     def setDocumentosFaltantes(self, documentosFaltantes):
@@ -116,7 +123,6 @@ class GlosaPorErrorDeFacturacion(Glosa):
 
     # Getters y setters
     def getTipoError(self):
-        print(f"El tipo de error es: {self.__tipoError}")
         return self.__tipoError
     
     def setTipoError(self, tipoError):
@@ -130,12 +136,12 @@ try:
     print("---------- Objeto => Glosa----------")
     glosa1 = Glosa(1, "Glosa por falta de documentación", 500)
     print(glosa1.mostrarInfo())
+    
     print("\n----------Get Codigo de glosa----------")
     glosa1.getCodigoGlosa()
     print("----------Get descripcion de glosa----------")
     glosa1.getDescripcion()
-    print("----------Get monto rechazado de glosa----------")
-    glosa1.getMontoRechazado()
+    print(f"Total de glosas rechazadas: {glosa1.getMontoRechazado()}")
     
     print("\n----------Set Codigo de glosa----------")
     glosa1.setCodigoGlosa(43)
@@ -144,9 +150,14 @@ try:
     print("----------Set monto rechazado de glosa----------")
     glosa1.setMontoRechazado("Glosa por falta de documentación 2.0")
 
+    print("\n----------Estaticos----------")
+    print("Total de glosas rechazadas: ")
+    glosa1.calcularTotalGlosasRechazadas()
+    
     print("\n----------Objeto => Glosa por falta de documentación----------")
     GlosaPorFaltaDocumentacion1 = GlosaPorFaltaDocumentacion(2, "Glosa por falta de documentación", 1000, "Documento de identidad")
     print(GlosaPorFaltaDocumentacion1.mostrarInfo())
+
     print("----------Get documentos faltantes----------")
     GlosaPorFaltaDocumentacion1.getDocumentosFaltantes()
     
@@ -156,6 +167,7 @@ try:
     print("\n----------Objeto => Glosa error de facturación----------")
     GlosaPorErrorDeFacturacion1 = GlosaPorErrorDeFacturacion(3, "Glosa por error de facturación", 1500, "Error en la facturación")
     print(GlosaPorErrorDeFacturacion1.mostrarInfo())
+
     print("----------Get tipo de error----------")
     GlosaPorErrorDeFacturacion1.getTipoError()
     
