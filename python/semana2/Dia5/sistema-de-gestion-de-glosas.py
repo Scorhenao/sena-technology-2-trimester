@@ -77,7 +77,25 @@ class Glosa:
     @staticmethod
     def calcularTotalGlosasRechazadas():
         return sum(glosa.getMontoRechazado() for glosa in glosas.values())
-    
+
+    @staticmethod
+    def cantidadDeGlosas():
+        for i in glosas:
+            print(f"La cantidad de glosas es: {i}")
+    @classmethod
+    def crearGlosa(self):
+        try:
+            codigo_glosa = self.getCodigoGlosa()
+            descripcion = self.getDescripcion()
+            montoRechazado = self.getMontoRechazado()
+
+            glosa = Glosa(codigo_glosa, descripcion, montoRechazado)
+
+            glosas[codigo_glosa] = glosa
+            print("Glosa creada exitosamente!")
+        except Exception as e:
+            print(e)
+
 class GlosaPorFaltaDocumentacion(Glosa):
     def __init__(self, codigo_glosa, descripcion, monto_rechazado, documentosFaltantes):
         super().__init__(codigo_glosa, descripcion, monto_rechazado)
@@ -153,6 +171,12 @@ try:
     print("\n----------Estaticos----------")
     print("Total de glosas rechazadas: ")
     glosa1.calcularTotalGlosasRechazadas()
+    
+    print("Cantidad de glosas son: ")
+    glosa1.cantidadDeGlosas()
+    
+    print("\n----------Clases----------")
+    glosa1.crearGlosa()
     
     print("\n----------Objeto => Glosa por falta de documentación----------")
     GlosaPorFaltaDocumentacion1 = GlosaPorFaltaDocumentacion(2, "Glosa por falta de documentación", 1000, "Documento de identidad")
