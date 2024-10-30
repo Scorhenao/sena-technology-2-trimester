@@ -75,7 +75,9 @@ function CreateEmployee() {
     let StatusOfEmployee = prompt(
       `Ingrese el estado del empleado No. ${
         e + 1
-      } (1 para Activo, 2 para Inactivo): `
+      } 
+        1) para Activo
+        2) para Inactivo `
     );
     if (StatusOfEmployee !== "1" && StatusOfEmployee !== "2") {
       alert("Estado de empleado no válido, ¡Debe elegir (1) o (2)!");
