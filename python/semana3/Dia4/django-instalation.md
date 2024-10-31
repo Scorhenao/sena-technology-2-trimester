@@ -94,4 +94,4 @@ Este error indica que el navegador intentó cargar un icono (`favicon.ico`). Pue
 - [Documentación de Django](https://docs.djangoproject.com/en/stable/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-```
+
