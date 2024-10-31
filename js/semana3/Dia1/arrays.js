@@ -150,3 +150,11 @@ const EliminarAprendiz = () => {
 }
 
 OpcionAprendiz()
+
+let confirmacion = parseInt(prompt(`¿Estas seguro de eliminar el evento? ${eventos[posicion].Nombre} 
+    1. SI
+    2. NO`))
+
+
+
+

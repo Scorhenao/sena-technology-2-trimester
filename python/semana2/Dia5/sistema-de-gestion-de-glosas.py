@@ -34,7 +34,7 @@ class Glosa:
             self.__montoRechazado = montoRechazado
 
 
-        except (TypeError, ValueError) as e:
+        except (TypeError, ValueError) as e:    
             print(f"Error al crear la glosa: {e}")
 
     def mostrarInfo(self):
