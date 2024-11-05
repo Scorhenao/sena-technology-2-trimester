@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Aprendices</title>
+</head>
+<body>
+    <p class="claseP">Hola1</p>
+    <p class="claseP">Hola2</p>
+    <p class="claseP">Hola3</p>
+    <p class="claseP">Hola4</p>
+    <p id="claseP">Hola 5</p>
+    <hr>
+    <h2 id="titulo">Titulo</h2>
+    <input type="text" id="nombreUsuario">
+    <button onclick='ObtenerNombre()'>ver nombre</button>
+    <script>
+        let querySelector = document.querySelector('.claseP');
+        console.log(querySelector);
+
+        let querySelectorAll = document.querySelectorAll('.claseP');
+        console.log(querySelectorAll);
+
+        let querySelectorById = document.getElementById('claseP');
+        console.log(querySelectorById);
+
+        let getElementByTagName = document.getElementsByTagName('p');
+        console.log(getElementByTagName);
+
+        function ObtenerNombre() {
+            let getElementByInput = document.getElementById('nombreUsuario');
+            console.log(getElementByInput.value);
+        }
+    </script>
+</body>
+</html>
