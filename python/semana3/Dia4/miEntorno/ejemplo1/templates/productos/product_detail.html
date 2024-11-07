@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ producto.nombre }}</title>
+</head>
+<body>
+    <h1>{{ producto.nombre }}</h1>
+    <p>{{ producto.descripcion }}</p>
+    <p>Precio: ${{ producto.precio }}</p>
+    <p>Stock: {{ producto.stock }}</p>
+    <a href="{% url 'product_update' producto.pk %}">Actualizar producto</a>
+    <a href="{% url 'product_delete' producto.pk %}">Eliminar producto</a>
+</body>
+</html>
