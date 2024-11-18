@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #messajeErrorNombre {
+            display: none;
+            font-size: 8px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        
+    </div>
+    <h2 id="titulo1">Hola</h2>
+    <hr>
+    <h2 id="titulo">Titulo</h2>
+        <label for="">Documento</label>
+        <input onkeyup="validatorLenght()" onchange="validarDocument()" type="text" id="nombreUsuario"> <br>
+        <small id="messajeErrorNombre">...</small><br>
+    
+    
+        <label for="">Nombre Completo</label>
+        <input type="text" id="apellidoUsuario"><br><br>
+        <button onclick="obtenerNombre()">Ver nombre</button>
+
+    <script src="manejoDom.js"></script>
+</body>
+
+</html>
