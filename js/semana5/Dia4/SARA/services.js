@@ -121,8 +121,18 @@ function ActualizarAprendiz(id) {
     });
 }
 
-
-
+// function ActualizarAprendiz(id) {
+//     listadoEstudiantes.forEach((element, index) => {
+//         if (index == id) {
+//             document.getElementById('idUsuario').value = id
+//             document.getElementById('documentoUsuarioEdit').value = element.documento
+//             document.getElementById('nombreUsuarioEdit').value = element.nombre
+//             document.getElementById('apellidosUsuarioEdit').value = element.apellidos
+//             document.getElementById('telefonoUsuarioEdit').value = element.telefono
+//             document.getElementById('estadoUsuarioEdit').value = element.estado
+//         }
+//     })
+// }
 
 function validacionExistencia() {
     let documento = document.getElementById('documentoUsuario').value;
